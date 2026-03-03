@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.nasdanika.models.terraform/src/main/java"
+    creationIcons="false" editorDirectory="" modelPluginID="org.nasdanika.models.terraform"
+    modelName="Terraform" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" bundleManifest="false" featureDelegation="Dynamic"
+    complianceLevel="21.0" suppressGenModelAnnotations="false" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>terraform.ecore</foreignModel>
+  <genPackages prefix="Terraform" basePackage="org.nasdanika.models" disposableProviderFactory="true"
+      ecorePackage="terraform.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="terraform.ecore#//ProvisionerType">
+      <genEnumLiterals ecoreEnumLiteral="terraform.ecore#//ProvisionerType/LOCAL_EXEC"/>
+      <genEnumLiterals ecoreEnumLiteral="terraform.ecore#//ProvisionerType/REMOTE_EXEC"/>
+      <genEnumLiterals ecoreEnumLiteral="terraform.ecore#//ProvisionerType/FILE"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="terraform.ecore#//ResourceMode">
+      <genEnumLiterals ecoreEnumLiteral="terraform.ecore#//ResourceMode/MANAGED"/>
+      <genEnumLiterals ecoreEnumLiteral="terraform.ecore#//ResourceMode/DATA"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="terraform.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="terraform.ecore#//DocumentedNamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//DocumentedNamedElement/description"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//Argument">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Argument/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Argument/value"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//Validation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Validation/condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Validation/errorMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//Precondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Precondition/condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Precondition/errorMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//Postcondition">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Postcondition/condition"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Postcondition/errorMessage"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//Lifecycle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Lifecycle/createBeforeDestroy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Lifecycle/preventDestroy"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Lifecycle/ignoreChanges"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Lifecycle/replaceTriggeredBy"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//Provisioner">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Provisioner/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Provisioner/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//ProviderRequirement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//ProviderRequirement/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//ProviderRequirement/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//ProviderRequirement/configurationAlias"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//Provider">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Provider/alias"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Provider/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Variable/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Variable/default"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Variable/sensitive"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Variable/nullable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Variable/validations"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//Output">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Output/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Output/sensitive"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Output/dependsOn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Output/preconditions"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//Local">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Local/value"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//Resource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Resource/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Resource/provider"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Resource/count"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Resource/forEach"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Resource/dependsOn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Resource/arguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Resource/provisioners"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Resource/lifecycle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Resource/preconditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Resource/postconditions"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//DataSource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//DataSource/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//DataSource/provider"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//DataSource/count"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//DataSource/forEach"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//DataSource/dependsOn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//DataSource/arguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//DataSource/lifecycle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//DataSource/preconditions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//DataSource/postconditions"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//Backend">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Backend/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Backend/arguments"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//ModuleCall">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//ModuleCall/source"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//ModuleCall/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//ModuleCall/count"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//ModuleCall/forEach"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//ModuleCall/dependsOn"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//ModuleCall/arguments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//ModuleCall/providers"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//Module">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Module/resources"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Module/dataSources"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Module/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Module/outputs"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Module/locals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Module/moduleCalls"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Module/requiredProviders"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//Module/requiredTerraformVersion"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//Configuration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Configuration/providers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Configuration/backend"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//Workspace">
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//ResourceInstance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//ResourceInstance/indexKey"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//ResourceInstance/schemaVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//ResourceInstance/attributesJson"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//ResourceInstance/sensitiveAttributes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//ResourceInstance/privateJson"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//StateResource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//StateResource/module"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//StateResource/mode"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//StateResource/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//StateResource/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//StateResource/providerConfig"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//StateResource/instances"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//StateOutput">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//StateOutput/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//StateOutput/value"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//StateOutput/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//StateOutput/sensitive"/>
+    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//State">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//State/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//State/terraformVersion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//State/serial"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//State/lineage"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//State/resources"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//State/outputs"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
