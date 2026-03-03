@@ -125,8 +125,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Configuration/providers"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference terraform.ecore#//Configuration/backend"/>
     </genClasses>
-    <genClasses ecoreClass="terraform.ecore#//Workspace">
-    </genClasses>
+    <genClasses ecoreClass="terraform.ecore#//Workspace"/>
     <genClasses ecoreClass="terraform.ecore#//ResourceInstance">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//ResourceInstance/indexKey"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute terraform.ecore#//ResourceInstance/schemaVersion"/>

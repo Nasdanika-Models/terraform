@@ -1,15 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="terraform" nsURI="ecore://nasdanika.org/models/terraform"
-    nsPrefix="org.nasdanika.models.terraform">
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="terraform" nsURI="ecore://nasdanika.org/models/terraform" nsPrefix="org.nasdanika.models.terraform">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="Ecore model for Terraform concepts based on the Terraform glossary (https://developer.hashicorp.com/terraform/docs/glossary).&#xA;&#xA;The model can be used to:&#xA;- Generate documentation about Terraform configurations&#xA;- Generate Terraform configuration artifacts (.tf files) from model instances&#xA;- Load and represent information from existing Terraform artifacts (configuration files, state files)"/>
   </eAnnotations>
-
-  <!-- ============================================================ -->
-  <!-- Enumerations                                                   -->
-  <!-- ============================================================ -->
-
   <eClassifiers xsi:type="ecore:EEnum" name="ProvisionerType">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Types of provisioners supported by Terraform. Provisioners are used to execute scripts on local or remote machines as part of resource creation or destruction."/>
@@ -30,7 +24,6 @@
       </eAnnotations>
     </eLiterals>
   </eClassifiers>
-
   <eClassifiers xsi:type="ecore:EEnum" name="ResourceMode">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="The mode of a resource in Terraform state. Indicates whether the resource is a managed resource or a data source."/>
@@ -46,11 +39,6 @@
       </eAnnotations>
     </eLiterals>
   </eClassifiers>
-
-  <!-- ============================================================ -->
-  <!-- Abstract base classes                                          -->
-  <!-- ============================================================ -->
-
   <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Abstract base class for all named Terraform elements."/>
@@ -61,8 +49,8 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
-  <eClassifiers xsi:type="ecore:EClass" name="DocumentedNamedElement" abstract="true" eSuperTypes="#//NamedElement">
+  <eClassifiers xsi:type="ecore:EClass" name="DocumentedNamedElement" abstract="true"
+      eSuperTypes="#//NamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Abstract base class for named Terraform elements that can have a description."/>
     </eAnnotations>
@@ -72,11 +60,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
-  <!-- ============================================================ -->
-  <!-- Configuration building blocks                                  -->
-  <!-- ============================================================ -->
-
   <eClassifiers xsi:type="ecore:EClass" name="Argument">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An argument assigns a value to a particular name within a Terraform block. Arguments appear within blocks and assign a value to a name. The value can be a literal value or an expression."/>
@@ -92,55 +75,57 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
   <eClassifiers xsi:type="ecore:EClass" name="Validation">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A validation block within an input variable definition. Validation rules allow module authors to define constraints on accepted variable values."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An HCL expression that returns true if the value is valid. Must return a boolean and may only reference the variable being validated."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="errorMessage" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="errorMessage" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The error message to display when the condition is false. Must be a string value and should describe the constraint."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
   <eClassifiers xsi:type="ecore:EClass" name="Precondition">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A precondition block that verifies assumptions about a resource, data source, or output before applying changes."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An HCL expression that must evaluate to true. If false, Terraform will produce an error."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="errorMessage" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="errorMessage" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The error message to display if the condition fails."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
   <eClassifiers xsi:type="ecore:EClass" name="Postcondition">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A postcondition block that verifies guarantees about a resource or data source after applying changes."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="condition" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="An HCL expression that must evaluate to true after the operation. If false, Terraform will produce an error."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="errorMessage" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="errorMessage" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The error message to display if the condition fails."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
   <eClassifiers xsi:type="ecore:EClass" name="Lifecycle">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A lifecycle block within a resource that customizes the resource lifecycle behavior. Provides fine-grained control over how Terraform creates, updates, and destroys resources."/>
@@ -155,18 +140,19 @@
         <details key="documentation" value="When true, any attempt to destroy the resource will produce an error. Useful for protecting critical infrastructure components."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignoreChanges" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignoreChanges" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="List of attribute paths that Terraform should ignore when planning updates. Changes to these attributes will not trigger a plan diff."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="replaceTriggeredBy" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="replaceTriggeredBy" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="List of references to resources or resource attributes that, when changed, should trigger replacement of this resource."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
   <eClassifiers xsi:type="ecore:EClass" name="Provisioner" eSuperTypes="#//NamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A provisioner within a resource block that executes scripts or copies files on a resource after it is created. Provisioners are a last resort and should be avoided when possible in favor of provider-native mechanisms."/>
@@ -176,17 +162,13 @@
         <details key="documentation" value="The type of provisioner: local-exec, remote-exec, or file."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1" eType="#//Argument" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
+        eType="#//Argument" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Configuration arguments for the provisioner (e.g., command, interpreter, working_dir for local-exec)."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
-  <!-- ============================================================ -->
-  <!-- Provider                                                       -->
-  <!-- ============================================================ -->
-
   <eClassifiers xsi:type="ecore:EClass" name="ProviderRequirement" eSuperTypes="#//NamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A required_providers entry that declares a dependency on a Terraform provider. Specifies the source address and version constraints for a provider."/>
@@ -198,7 +180,7 @@
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Version constraint string for the provider, e.g. '~&gt; 4.0', '&gt;= 3.0, &lt; 5.0'."/>
+        <details key="documentation" value="Version constraint string for the provider, e.g. '~> 4.0', '>= 3.0, &lt; 5.0'."/>
       </eAnnotations>
     </eStructuralFeatures>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="configurationAlias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
@@ -207,7 +189,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
   <eClassifiers xsi:type="ecore:EClass" name="Provider" eSuperTypes="#//DocumentedNamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A provider block that configures a specific provider plugin. Providers are responsible for understanding API interactions and exposing resources. Each provider name corresponds to a provider declared in required_providers."/>
@@ -217,17 +198,13 @@
         <details key="documentation" value="Optional alias for this provider configuration, allowing multiple configurations of the same provider type. Resources can then select a specific alias via the provider meta-argument."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1" eType="#//Argument" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
+        eType="#//Argument" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Provider-specific configuration arguments (e.g., region, access_key for AWS)."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
-  <!-- ============================================================ -->
-  <!-- Module members: Variable, Output, Local                       -->
-  <!-- ============================================================ -->
-
   <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//DocumentedNamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An input variable declaration that allows callers to customize module behavior without modifying the source. Variables are the parameters of Terraform modules, comparable to function arguments in programming."/>
@@ -247,18 +224,19 @@
         <details key="documentation" value="When true, marks the variable value as sensitive. Sensitive values are redacted from Terraform output and logs."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nullable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="nullable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="When false, Terraform will reject null values for this variable. Defaults to true."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="validations" upperBound="-1" eType="#//Validation" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="validations" upperBound="-1"
+        eType="#//Validation" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Custom validation rules for the variable value."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
   <eClassifiers xsi:type="ecore:EClass" name="Output" eSuperTypes="#//DocumentedNamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An output value declaration that exposes values from a module to the calling module or to the user. Output values make information about infrastructure available after applying the configuration."/>
@@ -273,18 +251,19 @@
         <details key="documentation" value="When true, marks the output value as sensitive. Sensitive values are redacted from Terraform output and logs."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dependsOn" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dependsOn" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Explicit dependencies for the output value, used when the value does not implicitly depend on all required resources. Specified as reference strings."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="preconditions" upperBound="-1" eType="#//Precondition" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preconditions" upperBound="-1"
+        eType="#//Precondition" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Preconditions that must be met before evaluating the output value."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
   <eClassifiers xsi:type="ecore:EClass" name="Local" eSuperTypes="#//NamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A local value is a convenience feature that assigns a name to an expression, allowing the same expression to be used multiple times without repeating it. Comparable to a local variable in a programming language."/>
@@ -295,11 +274,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
-  <!-- ============================================================ -->
-  <!-- Resource and DataSource                                        -->
-  <!-- ============================================================ -->
-
   <eClassifiers xsi:type="ecore:EClass" name="Resource" eSuperTypes="#//DocumentedNamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A resource block that describes one or more infrastructure objects, such as virtual networks, compute instances, or higher-level components such as DNS records. Resources are the most important element in Terraform; each resource block describes one or more infrastructure objects."/>
@@ -324,38 +298,43 @@
         <details key="documentation" value="The for_each meta-argument as an HCL expression. When set to a map or set, creates one instance per element."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dependsOn" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dependsOn" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Explicit dependencies for the resource, used when Terraform cannot automatically infer dependencies from expressions. Specified as reference strings (e.g., 'aws_s3_bucket.example')."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1" eType="#//Argument" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
+        eType="#//Argument" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Resource-type-specific configuration arguments."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="provisioners" upperBound="-1" eType="#//Provisioner" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="provisioners" upperBound="-1"
+        eType="#//Provisioner" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Provisioner blocks for post-creation actions. Provisioners are a last resort."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="lifecycle" eType="#//Lifecycle" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifecycle" eType="#//Lifecycle"
+        containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Lifecycle customization for this resource."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="preconditions" upperBound="-1" eType="#//Precondition" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preconditions" upperBound="-1"
+        eType="#//Precondition" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Preconditions that must hold before planning changes to this resource."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="postconditions" upperBound="-1" eType="#//Postcondition" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postconditions" upperBound="-1"
+        eType="#//Postcondition" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Postconditions that must hold after applying changes to this resource."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
   <eClassifiers xsi:type="ecore:EClass" name="DataSource" eSuperTypes="#//DocumentedNamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A data source allows Terraform to use information defined outside of Terraform, defined by another separate Terraform configuration, or modified by functions. Each data source corresponds to a data block in configuration. Data sources read existing infrastructure but do not manage its lifecycle."/>
@@ -380,37 +359,37 @@
         <details key="documentation" value="The for_each meta-argument as an HCL expression."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dependsOn" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dependsOn" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Explicit dependencies for the data source."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1" eType="#//Argument" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
+        eType="#//Argument" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Data-source-type-specific filter and configuration arguments."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="lifecycle" eType="#//Lifecycle" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lifecycle" eType="#//Lifecycle"
+        containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Lifecycle customization for this data source."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="preconditions" upperBound="-1" eType="#//Precondition" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preconditions" upperBound="-1"
+        eType="#//Precondition" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Preconditions that must hold before reading this data source."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="postconditions" upperBound="-1" eType="#//Postcondition" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postconditions" upperBound="-1"
+        eType="#//Postcondition" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Postconditions that must hold after reading this data source."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
-  <!-- ============================================================ -->
-  <!-- Backend                                                        -->
-  <!-- ============================================================ -->
-
   <eClassifiers xsi:type="ecore:EClass" name="Backend" eSuperTypes="#//NamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A backend block that defines where Terraform stores its state data files. The backend also determines how operations such as plan and apply are executed. Each configuration can have at most one backend block."/>
@@ -420,22 +399,19 @@
         <details key="documentation" value="The backend type (e.g., 'local', 's3', 'azurerm', 'gcs', 'remote', 'http', 'consul', 'pg', 'kubernetes')."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1" eType="#//Argument" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
+        eType="#//Argument" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Backend-type-specific configuration arguments (e.g., bucket, key, region for S3 backend)."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
-  <!-- ============================================================ -->
-  <!-- Module and Configuration                                       -->
-  <!-- ============================================================ -->
-
   <eClassifiers xsi:type="ecore:EClass" name="ModuleCall" eSuperTypes="#//DocumentedNamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A module call (module block) that instantiates a child module. A module is a container for multiple resources that are used together. The module call specifies the source of the module and passes input variable values to it."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The module source address, which tells Terraform where to find the module source code. Can be a local path, Terraform Registry address, GitHub URL, or other supported source types."/>
       </eAnnotations>
@@ -455,99 +431,100 @@
         <details key="documentation" value="The for_each meta-argument as an HCL expression."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dependsOn" upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dependsOn" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Explicit dependencies for this module call."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1" eType="#//Argument" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" upperBound="-1"
+        eType="#//Argument" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Input variable values passed to the module. Each argument corresponds to an input variable defined in the module."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="providers" upperBound="-1" eType="#//Argument" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providers" upperBound="-1"
+        eType="#//Argument" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Provider configuration assignments passed to the module, mapping module-local provider names to parent provider configurations."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
   <eClassifiers xsi:type="ecore:EClass" name="Module" eSuperTypes="#//DocumentedNamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A module is a container for multiple resources that are used together. Every Terraform configuration has at least one module, known as the root module. A module consists of a collection of .tf and/or .tf.json files kept together in a directory."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1" eType="#//Resource" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="#//Resource" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Managed resources declared in this module."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSources" upperBound="-1" eType="#//DataSource" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dataSources" upperBound="-1"
+        eType="#//DataSource" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Data sources declared in this module."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1" eType="#//Variable" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="#//Variable" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Input variable declarations for this module."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1" eType="#//Output" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
+        eType="#//Output" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Output value declarations for this module."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="locals" upperBound="-1" eType="#//Local" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="locals" upperBound="-1"
+        eType="#//Local" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Local value declarations for this module."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="moduleCalls" upperBound="-1" eType="#//ModuleCall" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="moduleCalls" upperBound="-1"
+        eType="#//ModuleCall" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Child module calls within this module."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredProviders" upperBound="-1" eType="#//ProviderRequirement" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="requiredProviders" upperBound="-1"
+        eType="#//ProviderRequirement" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Required provider declarations for this module, specifying provider source addresses and version constraints."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredTerraformVersion" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="requiredTerraformVersion"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Version constraint string for the minimum Terraform version required by this module."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
   <eClassifiers xsi:type="ecore:EClass" name="Configuration" eSuperTypes="#//Module">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A root module configuration that represents a complete Terraform configuration - a directory of .tf files that forms the root module. The Configuration is the main entry point from which Terraform executes and includes backend configuration and provider declarations."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="providers" upperBound="-1" eType="#//Provider" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="providers" upperBound="-1"
+        eType="#//Provider" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Provider configuration blocks for providers used in this configuration."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="backend" eType="#//Backend" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="backend" eType="#//Backend"
+        containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The backend configuration for this root module, defining where state is stored."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
-  <!-- ============================================================ -->
-  <!-- Workspace                                                      -->
-  <!-- ============================================================ -->
-
   <eClassifiers xsi:type="ecore:EClass" name="Workspace" eSuperTypes="#//DocumentedNamedElement">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A named workspace that isolates state data for separate Terraform runs of the same configuration. Each workspace has its own state file. The 'default' workspace is created automatically."/>
     </eAnnotations>
   </eClassifiers>
-
-  <!-- ============================================================ -->
-  <!-- State                                                          -->
-  <!-- ============================================================ -->
-
   <eClassifiers xsi:type="ecore:EClass" name="ResourceInstance">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A specific instance of a resource tracked in Terraform state. When using count or for_each, a resource may have multiple instances, each tracked separately."/>
@@ -578,7 +555,6 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
   <eClassifiers xsi:type="ecore:EClass" name="StateResource">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="A resource entry in Terraform state, representing one managed resource or data source and all its instances."/>
@@ -603,18 +579,19 @@
         <details key="documentation" value="The resource name as defined in the configuration."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="providerConfig" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="providerConfig" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The provider configuration address for this resource (e.g., 'provider[&quot;registry.terraform.io/hashicorp/aws&quot;]')."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="instances" upperBound="-1" eType="#//ResourceInstance" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="instances" upperBound="-1"
+        eType="#//ResourceInstance" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The resource instances tracked in state."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
   <eClassifiers xsi:type="ecore:EClass" name="StateOutput">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="An output value recorded in Terraform state."/>
@@ -640,12 +617,12 @@
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
   <eClassifiers xsi:type="ecore:EClass" name="State">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
       <details key="documentation" value="Terraform state, which is the record of all managed infrastructure and configuration. Terraform uses state to map real-world resources to the configuration, track metadata, and improve performance for large infrastructures. State is stored in a file (terraform.tfstate by default) or in a remote backend."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The state file format version number."/>
       </eAnnotations>
@@ -655,7 +632,8 @@
         <details key="documentation" value="The version of Terraform that last wrote this state file."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serial" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="serial" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A monotonically increasing integer that is incremented each time Terraform makes a change to state. Used for conflict detection in remote backends."/>
       </eAnnotations>
@@ -665,16 +643,17 @@
         <details key="documentation" value="A unique identifier for this state file, generated when the state is first created and unchanged thereafter. Used to detect unintended state swaps."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1" eType="#//StateResource" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="resources" upperBound="-1"
+        eType="#//StateResource" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="All resources tracked in this state."/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1" eType="#//StateOutput" containment="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputs" upperBound="-1"
+        eType="#//StateOutput" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Output values recorded in this state."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
-
 </ecore:EPackage>
