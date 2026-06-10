@@ -84,7 +84,7 @@ public class EcoreGenTerraformProcessorsFactory {
 				try {
 					Document document = Document.create(false, null);
 					Page page = document.createPage();
-					page.setName("Kubernetes");
+					page.setName("Terraform");
 					
 					Model model = page.getModel();
 					Root root = model.getRoot();

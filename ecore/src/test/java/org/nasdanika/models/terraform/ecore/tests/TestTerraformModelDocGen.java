@@ -60,8 +60,7 @@ public class TestTerraformModelDocGen {
 		
 		File actionModelsDir = new File("target\\action-models\\");
 		actionModelsDir.mkdirs();
-		File output = new File(actionModelsDir, "terraform.xmi");
-		
+		File output = new File(actionModelsDir, "terraform.xmi");		
 		
 		Map<EPackage, URI> packageURIMap = Map.ofEntries(
 				Map.entry(EcorePackage.eINSTANCE, URI.createURI("https://ecore.models.nasdanika.org/")),	
